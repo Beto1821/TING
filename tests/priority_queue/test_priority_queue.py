@@ -24,10 +24,10 @@ def test_basic_priority_queueing():
                                                   "linha4"]}
 
     # Adicionando arquivos não-prioritários
-    pq.enqueue({"nome_do_arquivo": "arq3.txt", "qtd_linhas": 5, 
-                "linhas_do_arquivo": ["linha1", "linha2", "linha3", "linha4", 
+    pq.enqueue({"nome_do_arquivo": "arq3.txt", "qtd_linhas": 5,
+                "linhas_do_arquivo": ["linha1", "linha2", "linha3", "linha4",
                                       "linha5"]})
-    pq.enqueue({"nome_do_arquivo": "arq4.txt", "qtd_linhas": 3, 
+    pq.enqueue({"nome_do_arquivo": "arq4.txt", "qtd_linhas": 3,
                 "linhas_do_arquivo": ["linha1", "linha2", "linha3"]})
 
     # Verificando se os arquivos foram adicionados corretamente e
@@ -56,4 +56,3 @@ def test_basic_priority_queueing():
     assert pq.search() == {"nome_do_arquivo": "arq3.txt", "qtd_linhas": 5,
                            "linhas_do_arquivo": ["linha1", "linha2", "linha3",
                                                  "linha4", "linha5"]}
-
