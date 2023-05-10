@@ -3,7 +3,7 @@ from ting_file_management.file_management import txt_importer
 
 
 def process(path_file, instance):
-    data = txt_importer(path_file)  # função import do requisito 01 queue.py
+    data = txt_importer(path_file)  # função import de file_management.py
     can_process = True  # variavel para verificação se dados de entrada
 
     # loop para verificacão se o arquivo existe na fila
@@ -29,8 +29,18 @@ def process(path_file, instance):
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    try:
+        removed = instance.dequeue()
+        print(
+            f"Arquivo {removed['nome_do_arquivo']} removido com sucesso",
+            file=sys.stdout,
+        )
+    except IndexError:
+        print("Não há elementos", file=sys.stdout)
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        print(instance.search(position), file=sys.stdout)
+    except IndexError:
+        print("Posição inválida", file=sys.stderr)
