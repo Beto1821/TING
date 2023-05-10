@@ -30,17 +30,23 @@ def process(path_file, instance):
 
 def remove(instance):
     try:
+        # Remove e retorna o elemento que está no início da fila.
         removed = instance.dequeue()
+        # Mostra mensagem informando que o arquivo foi removido com sucesso.
         print(
             f"Arquivo {removed['nome_do_arquivo']} removido com sucesso",
             file=sys.stdout,
         )
+        # Caso a fila esteja vazia, não é possível remover um elemento.
     except IndexError:
         print("Não há elementos", file=sys.stdout)
 
 
 def file_metadata(instance, position):
     try:
+        # Exibe os metadados do elemento que está na posição especificada.
         print(instance.search(position), file=sys.stdout)
+        # Caso a posição especificada seja inválida (fora dos limites da fila),
+        #  não é possível buscar o elemento.
     except IndexError:
         print("Posição inválida", file=sys.stderr)
